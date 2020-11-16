@@ -12,7 +12,7 @@ RUN apt-get update \
 	&& ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
 	&& ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
 	&& ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so \
-	&& && pecl install imagick \
+	&& pecl install imagick \
 	&& docker-php-ext-configure gd \
 	&& docker-php-ext-configure gmp \
 	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp json ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip \
