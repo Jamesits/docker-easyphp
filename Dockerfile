@@ -1,4 +1,4 @@
-FROM php:7.3.11-apache-stretch
+FROM php:7.4.12-apache-stretch
 LABEL maintainer="docker@public.swineson.me"
 
 # install the Apache2 modules we need
@@ -14,7 +14,7 @@ RUN apt-get update \
 	&& ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so \
 	&& docker-php-ext-configure gd --enable-gd-native-ttf --with-png-dir=/usr --with-jpeg-dir=/usr --with-freetype-dir=/usr \
 	&& docker-php-ext-configure gmp --with-gmp=/usr/include/x86_64-linux-gnu \
-	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp json ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip
+	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp json ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip imagick
 
 # set recommended PHP.ini settings
 # see https://secure.php.net/manual/en/opcache.installation.php
