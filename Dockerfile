@@ -5,9 +5,10 @@ LABEL maintainer="docker@public.swineson.me"
 RUN a2enmod rewrite expires headers substitute remoteip
 
 # install the PHP extensions we need
-RUN apt-get update \
+RUN set -x \
+	&& apt-get update \
 	&& apt-get upgrade -y \
-	&& apt-get install -y libgmp-dev libpng-dev libjpeg-dev zlib1g-dev libcurl4-gnutls-dev libldb-dev libldap2-dev libmcrypt-dev libfreetype6-dev libbz2-dev libxml2-dev libzip-dev libpq-dev libmagickwand-dev less sudo\
+	&& apt-get install -y libgmp-dev libpng-dev libjpeg-dev zlib1g-dev libcurl4-gnutls-dev libldb-dev libldap2-dev libmcrypt-dev libfreetype6-dev libbz2-dev libxml2-dev libzip-dev libpq-dev libmagickwand-dev libonig-dev less sudo\
 	&& rm -rf /var/lib/apt/lists/* \
 	&& ln -s /usr/include/x86_64-linux-gnu/gmp.h /usr/include/gmp.h \
 	&& ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
