@@ -1,4 +1,4 @@
-FROM php:7.4.12-apache-buster
+FROM php:7.4.15-apache-buster
 LABEL maintainer="docker@public.swineson.me"
 
 # install the Apache2 modules we need
@@ -14,9 +14,13 @@ RUN set -x \
 	&& ln -s /usr/lib/x86_64-linux-gnu/libldap.so /usr/lib/libldap.so \
 	&& ln -s /usr/lib/x86_64-linux-gnu/liblber.so /usr/lib/liblber.so \
 	&& pecl install imagick \
-	&& docker-php-ext-configure gd \
+	&& docker-php-ext-configure gd --enable-gd --with-freetype --with-jpeg --with-webp \
 	&& docker-php-ext-configure gmp \
-	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp json ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip \
+	&& docker-php-ext-configure intl \
+	&& docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
+	&& docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
+	&& docker-php-ext-configure zip \
+	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp intl json ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip \
 	&& docker-php-ext-enable imagick
 
 # set recommended PHP.ini settings
