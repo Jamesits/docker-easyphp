@@ -39,6 +39,7 @@ RUN { \
 		echo 'upload_max_filesize=256M'; \
 		echo 'post_max_size=256M'; \
 		echo 'max_execution_time=1200'; \
+		echo 'display_errors=stderr;' \
 	} > /usr/local/etc/php/conf.d/php-recommended.ini
 
 VOLUME /var/www/html
