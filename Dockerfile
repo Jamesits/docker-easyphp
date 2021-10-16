@@ -1,4 +1,4 @@
-FROM php:7.4.15-apache-buster
+FROM php:7.4.24-apache-buster
 LABEL maintainer="docker@public.swineson.me"
 
 # install the Apache2 modules we need
