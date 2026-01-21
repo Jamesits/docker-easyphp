@@ -1,12 +1,12 @@
 # About this Repo
 
-Preconfigured PHP7 + Apache Docker image. 
+Preconfigured PHP + Apache Docker image.
 
 This is designed to be like a shared hosting environment. You can easily migrate your PHP application (e.g. WordPress, Typecho, Piwik, etc.) to it directly without changing anything. (However, you may need your own database, just like the one provided by shared hosting.)
 
 Runtime:
  * Apache 2
- * PHP 7
+ * PHP
 
 Preinstalled:
  * some useful Apache modules

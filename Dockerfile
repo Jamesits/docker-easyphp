@@ -1,4 +1,4 @@
-FROM php:7.4.24-apache-buster
+FROM php:8.3.30-apache-trixie
 LABEL maintainer="docker@public.swineson.me"
 
 # install the Apache2 modules we need
@@ -33,7 +33,7 @@ RUN { \
 		echo 'opcache.fast_shutdown=1'; \
 		echo 'opcache.enable_cli=1'; \
 	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
-	
+
 RUN { \
 		echo 'file_uploads=On'; \
 		echo 'upload_max_filesize=256M'; \
