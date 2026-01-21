@@ -20,7 +20,7 @@ RUN set -x \
 	&& docker-php-ext-configure mysqli --with-mysqli=mysqlnd \
 	&& docker-php-ext-configure pdo_mysql --with-pdo-mysql=mysqlnd \
 	&& docker-php-ext-configure zip \
-	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp intl json ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip \
+	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp intl ldap mbstring mysqli opcache pdo pdo_mysql pdo_pgsql pcntl soap sockets zip \
 	&& docker-php-ext-enable imagick
 
 # set recommended PHP.ini settings
