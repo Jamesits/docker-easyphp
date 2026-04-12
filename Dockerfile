@@ -1,4 +1,4 @@
-FROM php:8.5.3-apache-trixie
+FROM php:8.5.5-apache-trixie
 LABEL maintainer="docker@public.swineson.me"
 
 # install the Apache2 modules we need
