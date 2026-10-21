@@ -1,6 +1,7 @@
 name: "Container Image Validation"
 
 on:
+  workflow_dispatch: {}
   pull_request:
     branches:
       - master
