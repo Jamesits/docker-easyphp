@@ -1,4 +1,4 @@
-FROM docker.io/library/php:8.5.12RC1-apache-trixie
+FROM docker.io/library/php:8.5.12-apache-trixie
 LABEL maintainer="docker@public.swineson.me"
 
 # install the Apache2 modules we need
