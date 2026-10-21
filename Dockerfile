@@ -23,24 +23,7 @@ RUN set -x \
 	&& docker-php-ext-install bcmath bz2 curl exif gd gettext gmp intl ldap mbstring mysqli pdo pdo_mysql pdo_pgsql pcntl soap sockets zip \
 	&& docker-php-ext-enable imagick
 
-# set recommended PHP.ini settings
-# see https://secure.php.net/manual/en/opcache.installation.php
-RUN { \
-		echo 'opcache.memory_consumption=128'; \
-		echo 'opcache.interned_strings_buffer=8'; \
-		echo 'opcache.max_accelerated_files=4000'; \
-		echo 'opcache.revalidate_freq=2'; \
-		echo 'opcache.fast_shutdown=1'; \
-		echo 'opcache.enable_cli=1'; \
-	} > /usr/local/etc/php/conf.d/opcache-recommended.ini
-
-RUN { \
-		echo 'file_uploads=On'; \
-		echo 'upload_max_filesize=256M'; \
-		echo 'post_max_size=256M'; \
-		echo 'max_execution_time=1200'; \
-		echo 'display_errors=stderr'; \
-	} > /usr/local/etc/php/conf.d/php-recommended.ini
+COPY --chown=0:0 rootfs_overrides/. /
 
 VOLUME /var/www/html
 
